@@ -1,0 +1,10 @@
+category_id,category_ja,category_en,description_ja,description_en
+programming,プログラミング,Programming,プログラミング基礎・ソフトウェア開発に関する科目,Programming and software development related subjects
+ai_data,AI・データサイエンス,AI / Data Science,人工知能・機械学習・データ分析に関する科目,AI machine learning and data analysis related subjects
+network,ネットワーク,Network,ネットワーク・通信技術に関する科目,Network and communication technology related subjects
+database,データベース,Database,データベース設計・管理に関する科目,Database design and management related subjects
+security,情報セキュリティ,Information Security,情報セキュリティに関する科目,Information security related subjects
+math_stats,数学・統計,Mathematics / Statistics,線形代数・確率統計などの基礎科目,Mathematics and statistics related subjects
+pbl_research,PBL・卒業研究,PBL / Research,PBL・実験・卒業研究に関する科目,PBL experiments and graduation research related subjects
+general,共通・教養,General Education,共通教育・教養科目,General education subjects
+unknown,未分類,Unknown,分類未確定の科目,Unclassified subjects

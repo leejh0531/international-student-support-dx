@@ -1,0 +1,5 @@
+faculty_id,faculty_ja,faculty_en,department_count,campus_ja,campus_en,source_id,last_verified
+engineering,工学部,School of Engineering,6,東京千住キャンパス,Tokyo Senju Campus,src_tdu_department_names,2026-06-14
+engineering_evening,工学部第二部,School of Engineering Evening Division,3,東京千住キャンパス,Tokyo Senju Campus,src_tdu_department_names,2026-06-14
+future_science,未来科学部,School of Science and Technology for Future Life,3,東京千住キャンパス,Tokyo Senju Campus,src_tdu_department_names,2026-06-14
+system_design,システムデザイン工学部,School of System Design and Technology,2,東京千住キャンパス,Tokyo Senju Campus,src_tdu_department_names,2026-06-14

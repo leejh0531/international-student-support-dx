@@ -1,0 +1,15 @@
+department_id,faculty_id,faculty_ja,faculty_en,department_ja,department_en,campus_ja,campus_en,source_id,last_verified
+ej,engineering,工学部,School of Engineering,電気電子工学科,Department of Electrical and Electronic Engineering,東京千住キャンパス,Tokyo Senju Campus,src_tdu_department_names,2026-06-14
+eh,engineering,工学部,School of Engineering,電子システム工学科,Department of Electronic Engineering,東京千住キャンパス,Tokyo Senju Campus,src_tdu_department_names,2026-06-14
+es,engineering,工学部,School of Engineering,応用化学科,Department of Applied Chemistry,東京千住キャンパス,Tokyo Senju Campus,src_tdu_department_names,2026-06-14
+ek,engineering,工学部,School of Engineering,機械工学科,Department of Mechanical Engineering,東京千住キャンパス,Tokyo Senju Campus,src_tdu_department_names,2026-06-14
+ef,engineering,工学部,School of Engineering,先端機械工学科,Department of Advanced Machinery Engineering,東京千住キャンパス,Tokyo Senju Campus,src_tdu_department_names,2026-06-14
+ec,engineering,工学部,School of Engineering,情報通信工学科,Department of Information and Communication Engineering,東京千住キャンパス,Tokyo Senju Campus,src_tdu_department_names,2026-06-14
+ne,engineering_evening,工学部第二部,School of Engineering Evening Division,電気電子工学科,Department of Electrical and Electronic Engineering,東京千住キャンパス,Tokyo Senju Campus,src_tdu_department_names,2026-06-14
+nm,engineering_evening,工学部第二部,School of Engineering Evening Division,機械工学科,Department of Mechanical Engineering,東京千住キャンパス,Tokyo Senju Campus,src_tdu_department_names,2026-06-14
+nc,engineering_evening,工学部第二部,School of Engineering Evening Division,情報通信工学科,Department of Information and Communication Engineering,東京千住キャンパス,Tokyo Senju Campus,src_tdu_department_names,2026-06-14
+fa,future_science,未来科学部,School of Science and Technology for Future Life,建築学科,Department of Architecture,東京千住キャンパス,Tokyo Senju Campus,src_tdu_department_names,2026-06-14
+fi,future_science,未来科学部,School of Science and Technology for Future Life,情報メディア学科,Department of Information Systems and Multimedia Design,東京千住キャンパス,Tokyo Senju Campus,src_tdu_department_names,2026-06-14
+fr,future_science,未来科学部,School of Science and Technology for Future Life,ロボット・メカトロニクス学科,Department of Robotics and Mechatronics,東京千住キャンパス,Tokyo Senju Campus,src_tdu_department_names,2026-06-14
+aj,system_design,システムデザイン工学部,School of System Design and Technology,情報システム工学科,Department of Information System Engineering,東京千住キャンパス,Tokyo Senju Campus,src_tdu_department_names,2026-06-14
+ad,system_design,システムデザイン工学部,School of System Design and Technology,デザイン工学科,Department of Design Engineering and Technology,東京千住キャンパス,Tokyo Senju Campus,src_tdu_department_names,2026-06-14

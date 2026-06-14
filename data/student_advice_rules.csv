@@ -1,0 +1,6 @@
+rule_id,condition_key,advice_ja,advice_en,next_contact_ja,next_contact_en,priority
+rule_student_type_regular,regular_international_student,正規留学生の場合、基本的には所属学科・入学年度の学生要覧を確認してください。,For degree-seeking international students please first check the student handbook for your department and admission year.,教務担当窓口 / 国際センター,Academic Affairs Office / International Center,high
+rule_student_type_exchange,exchange_student,交換留学生の場合、履修可能科目や単位認定条件が通常学生と異なる可能性があります。,For exchange students available courses and credit recognition rules may differ from regular students.,国際センター / 教務担当窓口,International Center / Academic Affairs Office,high
+rule_student_type_short,short_term_student,短期留学生の場合、プログラムごとに履修条件が異なる可能性があります。,For short-term students course conditions may differ depending on the program.,国際センター,International Center,high
+rule_source_unipa,unipa_required,最新の履修情報はUNIPAで追加告知される場合があります。必ずUNIPAも確認してください。,The latest course registration information may be announced through UNIPA. Please check UNIPA as well.,UNIPA / 教務担当窓口,UNIPA / Academic Affairs Office,high
+rule_unknown,unknown,この情報は正式確認が必要です。学生要覧、UNIPA、または担当窓口で確認してください。,This information requires official confirmation. Please check the student handbook UNIPA or the relevant office.,教務担当窓口,Academic Affairs Office,high

@@ -1,0 +1,10 @@
+category_id,category_ja,category_en,owner_type,primary_contact_ja,primary_contact_en,official_check_required,notes_ja,notes_en
+visa,ビザ・在留資格,Visa / Residence Status,official,国際センター / 出入国在留管理庁,International Center / Immigration Services Agency,yes,留学生部は最終判断を行わず、国際センターまたは公式機関へ案内する。,The student club does not make final judgments and redirects students to official offices.
+scholarship,奨学金,Scholarship,official,国際センター / 学生厚生担当窓口 / UNIPA,International Center / Student Affairs / UNIPA,yes,募集時期や条件が変わるため、UNIPAと公式窓口を確認する。,Scholarship information changes by period and conditions. Students must check UNIPA and official offices.
+course,履修・授業,Course Registration / Classes,official,教務担当窓口 / 国際センター / UNIPA,Academic Affairs Office / International Center / UNIPA,yes,学科・入学年度・学生区分によって条件が異なる。,Rules differ by department admission year and student type.
+bank,銀行口座,Bank Account,external,各銀行窓口,Bank Branch,yes,銀行ごとに条件が異なるため、公式案内を確認する。,Conditions differ by bank. Students must check official bank guidance.
+club_rules,留学生部ルール,Student Club Rules,internal,留学生部,International Student Club,no,月1回参加や出欠投票など内部ルールを案内する。,Provides internal rules such as monthly participation and attendance polls.
+executive,留学生部執行部,Student Club Executive Team,internal,留学生部執行部,Student Club Executive Team,no,企画部・広報部・事務部への参加希望を案内する。,Guides students who want to join planning PR or administration teams.
+events,年間イベント,Annual Events,internal,留学生部,International Student Club,no,年間イベント予定を案内する。,Provides annual event information.
+exchange,交換留学生,Exchange Students,mixed,国際センター / 教務担当窓口,International Center / Academic Affairs Office,yes,交換留学生は正規学生と履修・単位認定条件が異なる可能性がある。,Exchange students may have different course registration and credit recognition rules.
+short_term,短期留学生,Short-term Students,mixed,国際センター,International Center,yes,プログラムごとに参加条件や履修可能科目が異なる可能性がある。,Conditions and available courses may differ by program.

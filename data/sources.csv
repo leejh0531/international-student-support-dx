@@ -1,0 +1,6 @@
+source_id,source_name,source_type,source_url,access_level,last_verified,notes
+src_tdu_department_names,2026年度 学生要覧 大学・学部・学科の英文名,official_handbook,studentdoc3.pdf,uploaded_pdf,2026-06-14,東京千住キャンパス主要学部・学科名の確認に使用
+src_tdu_system_design_2026,2026年度 学生要覧 システムデザイン工学部,official_handbook,studentdoc3.pdf,uploaded_pdf,2026-06-14,システムデザイン工学部の履修・進級・卒業要件に使用
+src_tdu_youran_toc,2026年度 学生要覧 目次,official_handbook,studentdoc3.pdf,uploaded_pdf,2026-06-14,参照章・ページ確認用
+src_unipa,UNIPA announcements,internal_unipa,not_public,internal,2026-06-14,GitHubには原文やスクリーンショットを掲載しない
+src_naver_exchange_blog,交換留学生体験ブログ,external_blog,https://m.blog.naver.com/yusung059/224244642028,public_unverified,2026-06-14,個人ブログのため公式根拠ではなく参考情報として扱う
