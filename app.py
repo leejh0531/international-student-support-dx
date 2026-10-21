@@ -1,20 +1,18 @@
 import pandas as pd
 import streamlit as st
-from pathlib import Path
-
-DATA_DIR = Path("data")
+from src.data_utils import filter_requirements, load_table, search_faq
 
 st.set_page_config(
     page_title="International Student Support Desk DX",
     layout="wide"
 )
 
-@st.cache_data
 def load_csv(name: str) -> pd.DataFrame:
-    path = DATA_DIR / name
-    if not path.exists():
-        return pd.DataFrame()
-    return pd.read_csv(path)
+    try:
+        return load_table(name)
+    except (OSError, ValueError, pd.errors.ParserError) as exc:
+        st.error(f"データを読み込めません / Unable to load {name}: {exc}")
+        st.stop()
 
 requirements = load_csv("academic_requirements.csv")
 departments = load_csv("departments.csv")
@@ -177,17 +175,7 @@ with tab_faq:
     else:
         keyword = st.text_input("Keyword / キーワード", "")
 
-        if keyword:
-            mask = (
-                support_faq["question_ja"].str.contains(keyword, case=False, na=False)
-                | support_faq["question_en"].str.contains(keyword, case=False, na=False)
-                | support_faq["answer_ja"].str.contains(keyword, case=False, na=False)
-                | support_faq["answer_en"].str.contains(keyword, case=False, na=False)
-                | support_faq["category_id"].str.contains(keyword, case=False, na=False)
-            )
-            results = support_faq[mask]
-        else:
-            results = support_faq
+        results = search_faq(support_faq, keyword)
 
         st.write(f"Results / 検索結果: {len(results)}")
 
@@ -235,22 +223,14 @@ with tab_academic:
         selected_requirement_type = c3.selectbox("Requirement Type / 要件種別", requirement_type_options)
         selected_stage = c4.selectbox("Stage / 段階", stage_options)
 
-        filtered = requirements.copy()
-
-        if selected_department != "all":
-            filtered = filtered[
-                (filtered["department_id"] == selected_department)
-                | (filtered["department_id"].str.startswith("all_", na=False))
-            ]
-
-        if selected_student_type != "all":
-            filtered = filtered[filtered["student_type"] == selected_student_type]
-
-        if selected_requirement_type != "all":
-            filtered = filtered[filtered["requirement_type"] == selected_requirement_type]
-
-        if selected_stage != "all":
-            filtered = filtered[filtered["stage"] == selected_stage]
+        selected_year = st.selectbox(
+            "Admission Year / 入学年度",
+            ["all"] + sorted(requirements["admission_year"].dropna().astype(str).unique())
+        )
+        filtered = filter_requirements(
+            requirements, departments, selected_department, selected_student_type,
+            selected_requirement_type, selected_stage, selected_year
+        )
 
         st.write(f"Results / 検索結果: {len(filtered)}")
 

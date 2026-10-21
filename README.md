@@ -14,7 +14,7 @@ A personal learning prototype for browsing international-student support informa
 | Departments | 学部による学科一覧の絞り込み、日本語・英語名称の表示 |
 | Student Support | 相談カテゴリごとの案内先・注意事項・関連FAQの表示 |
 | FAQ Search | 登録済みの質問・回答・カテゴリIDを対象とした文字列検索 |
-| Academic Requirements | 学科・学生区分・要件種別・段階による情報の絞り込み |
+| Academic Requirements | 学科・学生区分・要件種別・段階・入学年度による情報の絞り込み |
 | Sources | CSVに登録した情報源メタデータの一覧表示 |
 
 二言語の文章はCSVに登録済みのものを表示します。実行時の自動翻訳や、大学のWebサイト・UNIPAからの自動取得は行いません。
@@ -26,7 +26,7 @@ Bilingual text is stored in the CSV files; there is no live translation or autom
 - 学科一覧：東京千住キャンパスの工学部、工学部第二部、未来科学部、システムデザイン工学部。
 - 学修要件：主に2026年度のシステムデザイン工学部に関する登録データ。学科一覧にある全学科の要件を網羅しているわけではありません。
 - FAQ：在留資格、奨学金、履修、銀行、留学生部の活動などに関する初期案内。
-- 入学年度はCSVに保存していますが、現在の画面には入学年度による絞り込みがありません。
+- 入学年度による絞り込みに対応しています。学科選択時には、その学科と所属学部の共通要件だけを表示します。
 
 The department directory has broader coverage than the academic-requirement dataset. A listed department does not imply that its academic requirements are available.
 
@@ -43,18 +43,20 @@ Confidence labels are dataset annotations, not independently validated reliabili
 
 本アプリは大学公式の案内や個別の履修・在留資格等の判断を代替しません。実際の手続きには、該当年度の公式資料と担当窓口の案内を確認してください。
 
-## 既知の制約 / Known limitations
+## 検証と制約 / Validation and limitations
 
-1. **学科フィルタの適用範囲**  
-   現在は学科を選択すると、department_id が all_ で始まる共通レコードを学部に関係なく含めます。そのため、システムデザイン工学部以外の学科にも同学部の共通要件が表示される場合があります。学部との対応付けの修正が必要です。
+- 学科フィルタは学科マスタの faculty_id に対応する共通要件だけを含めます。別学部の共通要件は表示しません。
+- FAQ検索は大文字・小文字を区別しない文字列検索です。[ や . なども文字として検索し、正規表現として解釈しません。意味検索は未実装です。
+- CSVの読込先はコードの場所を基準に解決します。欠けたファイルや必須列は画面にエラーを表示します。再実行時にはCSVを読み直します。
+- 検証スクリプトは、アプリが使用する6種類のCSVの必須列、主キーの空欄・重複、学部・学科・カテゴリ・出典の参照関係、信頼度ラベルを確認します。未使用の補助CSVは対象外です。
+- 検証は情報の正確性、翻訳品質、最新性、画面全体の動作を保証するものではありません。
 
-2. **FAQ検索の入力処理**  
-   検索はpandasの str.contains を使用し、現在は入力を正規表現として扱います。[ などの不完全なパターンではエラーが発生する場合があります。意味検索や検索精度の評価は未実装です。
+Regression tests cover faculty scope, combined filters, literal search, working-directory independence, and invalid dataset rejection. They test the data/query layer; browser UI behavior and source accuracy still require separate review.
 
-3. **データ検証の範囲**  
-   検証スクリプトは一部のファイルの存在、学修要件の必須列・信頼度ラベル・出典IDを確認します。情報の正確性、翻訳品質、全CSVの整合性、画面の動作を保証するものではありません。
-
-The department filter currently includes all shared records regardless of faculty. FAQ input is interpreted as a regular expression and can raise errors for invalid patterns. The validator checks selected structural properties only.
+~~~bash
+python src/validate_dataset.py
+python -m unittest discover -s tests -v
+~~~
 
 ## セットアップ / Run locally
 
@@ -76,8 +78,9 @@ Windowsでは仮想環境の有効化コマンドを利用するシェルに合�
 
 | ファイル | 用途 |
 | --- | --- |
-| [app.py](app.py) | Streamlitの画面とデータ読込・検索・フィルタ処理 |
-| [src/validate_dataset.py](src/validate_dataset.py) | 一部のデータ構造と出典IDの検証 |
+| [app.py](app.py) | Streamlitの画面 |
+| [src/data_utils.py](src/data_utils.py) | CSV読込・検索・学科/年度フィルタ・検証 |
+| [src/validate_dataset.py](src/validate_dataset.py) | 使用する6種類のCSVの構造と参照関係の検証 |
 | [data/faculty_summary.csv](data/faculty_summary.csv) | 学部別概要 |
 | [data/departments.csv](data/departments.csv) | 学科マスタ |
 | [data/academic_requirements.csv](data/academic_requirements.csv) | 履修・進級・卒業等に関する登録情報 |
@@ -89,8 +92,8 @@ Windowsでは仮想環境の有効化コマンドを利用するシェルに合�
 
 ## 今後の改善候補 / Next improvements
 
-- 学部・学科・入学年度に対応した要件の表示と検証。
-- FAQ検索入力の文字列処理の修正と、検索例による動作確認。
+- 学修要件データの対象学科・年度の拡充。
+- ブラウザ上の操作確認と、実際の相談例を使った検索評価。
 - 公式情報と部活動情報の確認基準の分離、公開出典とページ番号の追加。
 - 利用者に試してもらい、案内先の探しやすさや不足情報を評価。
 
